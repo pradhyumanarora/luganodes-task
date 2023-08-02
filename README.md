@@ -1,4 +1,5 @@
-# TASK
+# LugaNodes - TASK
+    Pradhyuman Arora - 20BPS1149
 ## Introduction 
 Task involves setting up and configuring a firewall using Firewalld with nftables on a Linux virtual machine. The task specifies the use of three zones: trusted-zone, internal-zone, and public-zone.
 
