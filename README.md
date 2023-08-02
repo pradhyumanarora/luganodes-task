@@ -9,3 +9,18 @@ The firewalld service handles rule groups through entities known as zones. These
 In Firewalld, rules can either be applied to the active runtime ruleset or be set as permanent. By default, when adding or modifying a rule, it only affects the current running firewall configuration. However, after the next system reboot or reload of the firewalld service, only the permanent rules will persist.
 
 For most operations using the firewall-cmd command, you can include the ```--permanent``` flag to specify that the changes should be applied to the permanent configuration.
+
+### Installing and Enabling firewall
+
+```sudo apt update```
+
+```sudo apt install firewalld nftables```
+
+After the firewall is installed , the service needs to be enabled using ```systemctl```
+
+```sudo systemctl enable firewalld```
+
+```sudo systemctl start firewalld```
+
+To verify if the service is up an running use 
+```sudo firewall-cmd --state```
