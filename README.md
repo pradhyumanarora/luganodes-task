@@ -37,18 +37,43 @@ To see the specific configuration associated with the zone we can use
 sudo firewall-cmd --zone='zone-name' --list-all
 
 #### Configuring
-- My Laptop IP
+##### My Laptop IP
 ![Alt text](image.png)'
 
-- Working with ```trusted-zone```
+##### Test-VM
+![Alt text](image-2.png)
 
-I am going to configure my firewall in such a way that `trusted-zone` can allow my laptop ip for ```ssh service``` using port ```22/tcp```
+##### Working with ```trusted-zone```
 
-- Command used
+I am going to configure my firewall in such a way that `trusted-zone` can allow my laptop ip for ```http, https and ssh service```
 
-```sudo firewall-cmd --zone=trusted --add-source=172.20.26.155```
-```sudo firewall-cmd --zone=trusted --add-service=ssh```
-```sudo firewall-cmd --zone=trusted --add-port=22/tcp```
-```sudo firewall-cmd --zone=trusted --list-all```
 ![Alt text](image-1.png)
 
+- Commands used
+```sudo firewall-cmd --zone-trusted --add-source=192.168.166.206```
+```sudo firewall-cmd --zone=trusted --add-service=http https ssh```<br>
+```sudo firewall-cmd --zone=trusted --list-all```<br>
+
+##### Working with ```public-zone```
+
+In public zone already ssh is allowed. I have made a Test-vm to check ssh working . Its ip is attached above.
+
+- checking public zone list
+![Alt text](image-4.png)
+
+- ssh using test-vm
+![Alt text](image-3.png)
+
+
+##### Working with ```internal-zone```
+
+- configuration list of internal zone
+![Alt text](image-5.png)
+
+- adding ip and interface for internal zone
+![Alt text](image-6.png)
+
+##### Creating a new Custom Zone
+- create zone ```publicweb``` and configuring
+
+![Alt text](image-7.png)
