@@ -24,3 +24,31 @@ After the firewall is installed , the service needs to be enabled using ```syste
 
 To verify if the service is up an running use 
 ```sudo firewall-cmd --state```
+
+### Configuring 
+According to problem statement I need to use `trusted-zone` , `internal-zone`, and `public-zone`.
+
+#### Getting Information 
+
+To see a list of available zones we can use `firewall-cmd --get-zones`
+We can find the above said zones in the available zones.
+
+To see the specific configuration associated with the zone we can use 
+sudo firewall-cmd --zone='zone-name' --list-all
+
+#### Configuring
+- My Laptop IP
+![Alt text](image.png)'
+
+- Working with ```trusted-zone```
+
+I am going to configure my firewall in such a way that `trusted-zone` can allow my laptop ip for ```ssh service``` using port ```22/tcp```
+
+- Command used
+
+```sudo firewall-cmd --zone=trusted --add-source=172.20.26.155```
+```sudo firewall-cmd --zone=trusted --add-service=ssh```
+```sudo firewall-cmd --zone=trusted --add-port=22/tcp```
+```sudo firewall-cmd --zone=trusted --list-all```
+![Alt text](image-1.png)
+
